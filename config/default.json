@@ -1,3 +1,4 @@
 {
-    "mongoURI":"mongodb+srv://yoursdeveloper:VFM277S8lJTCuoWt@devconnector.np4u6.mongodb.net/?retryWrites=true&w=majority&appName=DevConnector"
+    "mongoURI":"mongodb+srv://yoursdeveloper:VFM277S8lJTCuoWt@devconnector.np4u6.mongodb.net/?retryWrites=true&w=majority&appName=DevConnector",
+    "jwtSecret": "myDevSecretToken"
 }
