@@ -1,6 +1,18 @@
 const express = require("express");
 const connectDB = require("./config/db");
 
+const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
+const corsOptions = {
+  origin: process.env.FRONTENDORIGIN,
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization", "x-auth-token"],
+  exposedHeaders: ["x-auth-token", "Content-Type", "Authorization"],
+};
+
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -8,7 +20,9 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 // Init Middleware
+app.use(cors(corsOptions));
 app.use(express.json({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   res.send("Hello, API is running!!!");
